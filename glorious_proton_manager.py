@@ -68,7 +68,7 @@ col1 =  [
         ]
 
 col2 =  [ 
-            [sg.Button('1. List Previous Releases (Up to 15)', size=(47, 3), font=('Any 9'), button_color='#c7d5e0')],
+            [sg.Button('1. List Previous Releases (Last 15)', size=(47, 3), font=('Any 9'), button_color='#c7d5e0')],
             [sg.Text('2. Select One (e.g 7-15):', font=('Any 9')), sg.InputText(size=[20, 20], font=('Any 12'))],
             [sg.Button('3. Install Previous Release of GE-Proton', size=(47, 3), font=('Any 9'), button_color='#c7d5e0')]
         ]
