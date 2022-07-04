@@ -26,10 +26,10 @@ To run the application simply type:
 
 What can you do with this tool
 ------------------------------
-GPM is divided into 4 different columns: Prerequisites, Updates, Old Releases and Removals
+GPM is divided into 4 different columns: **Prerequisites**, **Updates**, **Old Releases** and **Removals**.
 
 ## Prerequisites
-This single button checks whether the default directory (~/.steam/root/compatibilitytools.d) where GE-Proton releases should be installed to exist. If it doesn't the directory will be created
+This single button checks whether the default directory **(~/.steam/root/compatibilitytools.d)** where GE-Proton releases should be installed to exist. If it doesn't the directory will be created
 
 ## Updates
 This button checks whether the last version of GE-Proton is installed on your system or not. If it is, a message will be displayed saying so. Otherwise it'll be installed.
