@@ -1,3 +1,17 @@
+Metadata-Version: 2.1
+Name: GloriousProtonManager
+Version: 0.0.3
+Summary: Manage GE-Proton installation, removal and more
+Author-email: Loco Motion <thelocomotionnn@gmail.com>
+Project-URL: Homepage, https://github.com/pypa/GloriousProtonManager
+Project-URL: Bug Tracker, https://github.com/pypa/GloriousProtonManager/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+
 Introduction
 ------------
 **Glorious Proton Manager (GPM)** is a tool which allows Linux users to install old and new releases of [GE-Proton][ge-proton-url] as they come out, as well as deleting them. Providing a UI for something like this felt needed as the number of new users gaming on Linux is growing thanks to Valve, WINE and other Open Source projects.

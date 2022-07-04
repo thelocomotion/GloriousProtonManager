@@ -1,0 +1,9 @@
+LICENSE.md
+README.md
+pyproject.toml
+src/GloriousProtonManager/__init__.py
+src/GloriousProtonManager/gpm.py
+src/GloriousProtonManager.egg-info/PKG-INFO
+src/GloriousProtonManager.egg-info/SOURCES.txt
+src/GloriousProtonManager.egg-info/dependency_links.txt
+src/GloriousProtonManager.egg-info/top_level.txt
