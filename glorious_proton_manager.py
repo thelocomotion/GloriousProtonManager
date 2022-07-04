@@ -124,7 +124,7 @@ while True:
     if event == "1. List Currently Installed Versions":
         installed_versions = os.listdir(proton_dir)
         if len(installed_versions) == 0:
-            print("No GE-Proton versions are installed in your system\n")
+            print("No GE-Proton versions are installed on your system\n")
         else:
             list_installed_versions()
     if event == "1. List Previous Releases (Last 15)":
