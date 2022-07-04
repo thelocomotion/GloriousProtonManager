@@ -23,6 +23,11 @@ This should install the Python modules that are needed to run the application.
 ```
 pip3 install GloriousProtonManager
 ```
+Locate gpm.py and then run:
+```
+chmod +x gpm.py
+./gpm.py
+```
 
 Dependencies
 ------------
