@@ -63,47 +63,41 @@ def delete_old_release():
 sg.theme('DarkBlue2')
 
 col1 =  [ 
-        [sg.Button("Check if Default GE-Proton Directory Exists", size=(100, 200), font=('Any 9'))]
+            [sg.Button('Check if Default GE-Proton Directory Exists', size=(47, 2), font=('Any 9'), button_color='#c7d5e0')],
+            [sg.Button('Update GE-Proton to Latest Version', size=(47, 6), font=('Any 9'), button_color='#c7d5e0')]
         ]
 
 col2 =  [ 
-        [sg.Button("Update GE-Proton to Latest Version", size=(100, 200), font=('Any 9'))]
+            [sg.Button('1. List Previous Releases (Up to 15)', size=(47, 3), font=('Any 9'), button_color='#c7d5e0')],
+            [sg.Text('2. Select One (e.g 7-15):', font=('Any 9')), sg.InputText(size=[20, 20], font=('Any 12'))],
+            [sg.Button('3. Install Previous Release of GE-Proton', size=(47, 3), font=('Any 9'), button_color='#c7d5e0')]
         ]
 
-col3 =  [ 
-        [sg.Button("1. List Previous Releases (Last 15)", size=(47, 4), font=('Any 9'))],
-        [sg.Text("2. Select One (e.g 7-15):", font=('Any 9')), sg.InputText(size=[20, 20], font=('Any 12'))],
-        [sg.Button("3. Install Previous Release of GE-Proton", size=(47, 4), font=('Any 9'))]
+col3 =  [
+            [sg.Button('1. List Currently Installed Versions', size=(47, 3), font=('Any 9'), button_color='#c7d5e0')],
+            [sg.Text('2. Select One (e.g 7-15):', font=('Any 9')), sg.InputText(size=[20, 20], font=('Any 12'))],
+            [sg.Button('3. Delete GE-Proton Version', size=(47, 3), font=('Any 9'), button_color='#c7d5e0')]
         ]
 
 col4 =  [
-        [sg.Button("1. List Currently Installed Versions", size=(47, 4), font=('Any 9'))],
-        [sg.Text("2. Select One (e.g 7-15):", font=('Any 9')), sg.InputText(size=[20, 20], font=('Any 12'))],
-        [sg.Button("3. Delete GE-Proton Version", size=(47, 4), font=('Any 9'))]
+            [sg.Multiline(size=(122,18),
+                font='Any 11',
+                background_color='#c7d5e0',
+                text_color='#171a21',
+                do_not_clear=False,
+                reroute_stdout=True, 
+                reroute_stderr=True,
+                autoscroll = True)]
         ]
 
 col5 =  [
-        [sg.Multiline(size=(165,18),
-              font='Any 11',
-              do_not_clear=False,
-              reroute_stdout=True, 
-              reroute_stderr=True,
-              autoscroll = True)]
+            [sg.Button('Exit', font=('Any 11'), button_color='#c7d5e0')]
         ]
 
-col6 =  [
-        [sg.Button("Exit", font=('Any 11'))]
-        ]
-
-layout = [  
-            [   
-                sg.Frame("Prerequisites", col1, size=(325, 230)), 
-                sg.Frame("Updates", col2, size=(325, 230)), 
-                sg.Frame("Old Releases", col3, size=(325, 230)), 
-                sg.Frame("Removals", col4, size=(325, 230))
-            ],
-                [sg.Column(col5)],
-                [sg.Column(col6)],
+layout = [     
+            [sg.Frame('Prerequisites & Updates', col1, size=(325, 200)), sg.Frame('Old Releases', col2, size=(325, 200)), sg.Frame('Removals', col3, size=(325, 200))],
+            [sg.Column(col4)],
+            [sg.Column(col5)],
          ]
 
 # Create the Window
