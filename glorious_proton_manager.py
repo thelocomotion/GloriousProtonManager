@@ -71,7 +71,7 @@ col2 =  [
         ]
 
 col3 =  [ 
-        [sg.Button("1. List Previous Releases (Up to 15)", size=(47, 4), font=('Any 9'))],
+        [sg.Button("1. List Previous Releases (Last 15)", size=(47, 4), font=('Any 9'))],
         [sg.Text("2. Select One (e.g 7-15):", font=('Any 9')), sg.InputText(size=[20, 20], font=('Any 12'))],
         [sg.Button("3. Install Previous Release of GE-Proton", size=(47, 4), font=('Any 9'))]
         ]
@@ -127,7 +127,7 @@ while True:
             print("No GE-Proton versions are installed in your system\n")
         else:
             list_installed_versions()
-    if event == "1. List Previous Releases (Up to 15)":
+    if event == "1. List Previous Releases (Last 15)":
         last_fifteen_releases()
     if event == "3. Install Previous Release of GE-Proton":
         installed_versions = os.listdir(proton_dir)
