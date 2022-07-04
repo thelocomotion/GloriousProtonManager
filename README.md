@@ -1,2 +1,3 @@
-# GloriousProtonManager
-Glorious Proton Manager (GPM)
+Introduction
+------------
+
