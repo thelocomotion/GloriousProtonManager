@@ -1,4 +1,4 @@
-LICENSE.md
+LICENSE
 README.md
 pyproject.toml
 src/GloriousProtonManager/__init__.py
