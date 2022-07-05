@@ -6,13 +6,10 @@ import PySimpleGUI as sg
 import requests
 import shutil
 import tarfile
+from .constants import *
 
-user_home = os.environ['HOME']
-proton_ge_latest = "https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest"
-proton_ge_releases = "https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases"
-proton_dir = f"{user_home}/.steam/root/compatibilitytools.d/"
-r1 = requests.get(proton_ge_latest)
-r2 = requests.get(proton_ge_releases)
+r1 = requests.get(PROTON_GE_LATEST)
+r2 = requests.get(PROTON_GE_RELEASES)
 filter_latest = json.loads(r1.text)
 filter_releases = json.loads(r2.text)
 last_version_url = filter_latest['assets'][1]['browser_download_url']
@@ -20,18 +17,18 @@ last_version_tag = filter_latest['tag_name']
 last_fifteen = filter_releases[0:15]
 
 def check_directory_exists():
-    if os.path.exists(proton_dir) == True:
+    if os.path.exists(DEFAULT_DIR) == True:
         sg.popup("GE-Proton directory already created", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
     else:
         print("Creating default GE-Proton directory...\n")
-        os.mkdir(proton_dir)
-        print(f"\n{proton_dir} successfully created\n")
+        os.mkdir(DEFAULT_DIR)
+        print(f"\n{DEFAULT_DIR} successfully created\n")
 
 def install_latest_update():
     print("Installing latest version of GE-Proton. This might take a minute or two...")
     response = requests.get(last_version_url, stream=True)
     file = tarfile.open(fileobj=response.raw, mode="r|gz")
-    file.extractall(path=proton_dir)
+    file.extractall(path=DEFAULT_DIR)
     os.scandir()
 
 def last_fifteen_releases():
@@ -44,19 +41,19 @@ def install_old_release():
     print(f"Downloading and extracting GE-Proton {values[0]}. This might take a minute or two...\n")
     response = requests.get(old_release, stream=True)
     file = tarfile.open(fileobj=response.raw, mode="r|gz")
-    file.extractall(path=proton_dir)
+    file.extractall(path=DEFAULT_DIR)
     print("Installation complete\n")
 
 def list_installed_versions():
     print("Currently these GE-Proton versions are installed in your system:\n")
-    installed_versions = os.listdir(proton_dir)
+    installed_versions = os.listdir(DEFAULT_DIR)
     for x in sorted(installed_versions, reverse=True):
         print(f"- {x}")
 
 def delete_old_release():
     ge_del_version = "GE-Proton{0}".format(values[1])
     print(f"Deleting {ge_del_version}...\n")
-    shutil.rmtree(proton_dir + ge_del_version)
+    shutil.rmtree(DEFAULT_DIR + ge_del_version)
     os.scandir()
 
 sg.theme('DarkBlue2')
@@ -108,14 +105,14 @@ while True:
     if event == "Check if Default GE-Proton Directory Exists":
         check_directory_exists()
     if event == "Update GE-Proton to Latest Version":
-        installed_versions = os.listdir(proton_dir)
+        installed_versions = os.listdir(DEFAULT_DIR)
         if last_version_tag in installed_versions:
             sg.popup("Latest version is already installed", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
         else:
             install_latest_update()
             sg.popup(f"{last_version_tag} successfully installed", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
     if event == "1. List Currently Installed Versions":
-        installed_versions = os.listdir(proton_dir)
+        installed_versions = os.listdir(DEFAULT_DIR)
         if len(installed_versions) == 0:
             print("No GE-Proton versions are installed on your system\n")
         else:
@@ -123,7 +120,7 @@ while True:
     if event == "1. List Previous Releases (Last 15)":
         last_fifteen_releases()
     if event == "3. Install Previous Release of GE-Proton":
-        installed_versions = os.listdir(proton_dir)
+        installed_versions = os.listdir(DEFAULT_DIR)
         user_input_one = values[0]
         new_dict = []
         for x in last_fifteen:
