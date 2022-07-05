@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import json
-from operator import ge
 import os
 import PySimpleGUI as sg
 import requests
@@ -54,8 +53,7 @@ def install_old_release():
 
 def list_installed_versions():
     print("Currently these GE-Proton versions are installed in your system:\n")
-    installed_versions = os.listdir(DEFAULT_DIR)
-    for x in sorted(installed_versions, reverse=True):
+    for x in sorted(os.listdir(DEFAULT_DIR), reverse=True):
         print(f"- {x}")
 
 def delete_old_release(): 
@@ -125,9 +123,8 @@ while True:
     if event == "Update GE-Proton to Latest Version":
         install_latest_update()
     if event == "1. List Currently Installed Versions":
-        # installed_versions = os.listdir(DEFAULT_DIR)
         if os.path.exists(DEFAULT_DIR) == False:
-            sg.popup("GE-Proton default directory doesn't exist. Check the Prerequisites", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
+            sg.popup("Default directory doesn't exist. Check the prerequisites", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
         elif len(os.listdir(DEFAULT_DIR)) == 0:
             print("No GE-Proton versions found on your system\n")
         else:
@@ -148,7 +145,6 @@ while True:
         else:
             install_old_release()
             sg.popup(f"GE-Proton{values[0]} successfully installed", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
-
     if event == "3. Delete GE-Proton Version":
         delete_old_release()
 
