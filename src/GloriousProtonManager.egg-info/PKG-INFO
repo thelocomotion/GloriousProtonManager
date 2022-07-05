@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: GloriousProtonManager
-Version: 0.0.4
+Version: 0.0.5
 Summary: Manage GE-Proton installation, removal and more
 Author-email: Loco Motion <thelocomotionnn@gmail.com>
 License:                     GNU GENERAL PUBLIC LICENSE
@@ -678,8 +678,8 @@ License:                     GNU GENERAL PUBLIC LICENSE
         Public License instead of this License.  But first, please read
         <https://www.gnu.org/licenses/why-not-lgpl.html>.
         
-Project-URL: Homepage, https://github.com/pypa/GloriousProtonManager
-Project-URL: Bug Tracker, https://github.com/pypa/GloriousProtonManager/issues
+Project-URL: Homepage, https://github.com/thelocomotion/GloriousProtonManager
+Project-URL: Bug Tracker, https://github.com/thelocomotion/GloriousProtonManager/issues
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
 Classifier: Operating System :: OS Independent
@@ -711,6 +711,11 @@ This should install the Python modules that are needed to run the application.
 ## Using pip
 ```
 pip3 install GloriousProtonManager
+```
+Locate gpm.py and then run:
+```
+chmod +x gpm.py
+./gpm.py
 ```
 
 Dependencies
