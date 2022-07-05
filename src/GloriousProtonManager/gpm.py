@@ -21,7 +21,7 @@ last_fifteen = filter_releases[0:15]
 
 def check_directory_exists():
     if os.path.exists(proton_dir) == True:
-        sg.popup("GE-Proton directory already created", font=('Any 9'), title="Glorious Proton Manager (GPM)")
+        sg.popup("GE-Proton directory already created", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
     else:
         print("Creating default GE-Proton directory...\n")
         os.mkdir(proton_dir)
@@ -62,25 +62,25 @@ def delete_old_release():
 sg.theme('DarkBlue2')
 
 col1 =  [ 
-            [sg.Button('Check if Default GE-Proton Directory Exists', size=(47, 2), font=('Any 9'), button_color='#c7d5e0')],
-            [sg.Button('Update GE-Proton to Latest Version', size=(47, 6), font=('Any 9'), button_color='#c7d5e0')]
+            [sg.Button('Check if Default GE-Proton Directory Exists', size=(47, 2), font=('DejaVu 9'), button_color='#c7d5e0')],
+            [sg.Button('Update GE-Proton to Latest Version', size=(47, 6), font=('DejaVu 9'), button_color='#c7d5e0')]
         ]
 
 col2 =  [ 
-            [sg.Button('1. List Previous Releases (Last 15)', size=(47, 3), font=('Any 9'), button_color='#c7d5e0')],
-            [sg.Text('2. Select One (e.g 7-15):', font=('Any 9')), sg.InputText(size=[20, 20], font=('Any 12'))],
-            [sg.Button('3. Install Previous Release of GE-Proton', size=(47, 3), font=('Any 9'), button_color='#c7d5e0')]
+            [sg.Button('1. List Previous Releases (Last 15)', size=(47, 3), font=('DejaVu 9'), button_color='#c7d5e0')],
+            [sg.Text('2. Select One (e.g 7-15):', font=('DejaVu 9')), sg.InputText(size=[20, 20], font=('DejaVu 12'))],
+            [sg.Button('3. Install Previous Release of GE-Proton', size=(47, 3), font=('DejaVu 9'), button_color='#c7d5e0')]
         ]
 
 col3 =  [
-            [sg.Button('1. List Currently Installed Versions', size=(47, 3), font=('Any 9'), button_color='#c7d5e0')],
-            [sg.Text('2. Select One (e.g 7-15):', font=('Any 9')), sg.InputText(size=[20, 20], font=('Any 12'))],
-            [sg.Button('3. Delete GE-Proton Version', size=(47, 3), font=('Any 9'), button_color='#c7d5e0')]
+            [sg.Button('1. List Currently Installed Versions', size=(47, 3), font=('DejaVu 9'), button_color='#c7d5e0')],
+            [sg.Text('2. Select One (e.g 7-15):', font=('DejaVu 9')), sg.InputText(size=[20, 20], font=('DejaVu 12'))],
+            [sg.Button('3. Delete GE-Proton Version', size=(47, 3), font=('DejaVu 9'), button_color='#c7d5e0')]
         ]
 
 col4 =  [
-            [sg.Multiline(size=(122,18),
-                font='Any 11',
+            [sg.Multiline(size=(120,18),
+                font='DejaVu 11',
                 background_color='#c7d5e0',
                 text_color='#171a21',
                 do_not_clear=False,
@@ -90,7 +90,7 @@ col4 =  [
         ]
 
 col5 =  [
-            [sg.Button('Exit', font=('Any 11'), button_color='#c7d5e0')]
+            [sg.Button('Exit', font=('DejaVu 11'), button_color='#c7d5e0')]
         ]
 
 layout = [     
@@ -110,10 +110,10 @@ while True:
     if event == "Update GE-Proton to Latest Version":
         installed_versions = os.listdir(proton_dir)
         if last_version_tag in installed_versions:
-            sg.popup("Latest version is already installed", font=('Any 9'), title="Glorious Proton Manager (GPM)")
+            sg.popup("Latest version is already installed", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
         else:
             install_latest_update()
-            sg.popup(f"{last_version_tag} successfully installed", font=('Any 9'), title="Glorious Proton Manager (GPM)")
+            sg.popup(f"{last_version_tag} successfully installed", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
     if event == "1. List Currently Installed Versions":
         installed_versions = os.listdir(proton_dir)
         if len(installed_versions) == 0:
@@ -129,22 +129,22 @@ while True:
         for x in last_fifteen:
             new_dict.append(x['tag_name'])
         if user_input_one == '':
-            sg.popup("Field is empty", font=('Any 9'), title="Glorious Proton Manager (GPM)")
+            sg.popup("Field is empty", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
         elif user_input_one not in str(new_dict):
             sg.popup(f"Invalid value", title="Glorious Proton Manager (GPM)")
         elif user_input_one in str(installed_versions):
             sg.popup(f"This version of GE-Proton is already installed", title="Glorious Proton Manager (GPM)")
         else:
             install_old_release()
-            sg.popup(f"GE-Proton{values[0]} successfully installed", font=('Any 9'), title="Glorious Proton Manager (GPM)")
+            sg.popup(f"GE-Proton{values[0]} successfully installed", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
     if event == "3. Delete GE-Proton Version":
         user_input_two = values[1]
         if user_input_two == '':
-            sg.popup("Field is empty", font=('Any 9'), title="Glorious Proton Manager (GPM)")
+            sg.popup("Field is empty", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
         elif user_input_two not in str(installed_versions):
-            sg.popup("This version is not installed on your system", font=('Any 9'), title="Glorious Proton Manager (GPM)")
+            sg.popup("This version is not installed on your system", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
         else:
             delete_old_release()
-            sg.popup(f"GE-Proton{user_input_two} successfully deleted", font=('Any 9'), title="Glorious Proton Manager (GPM)")
+            sg.popup(f"GE-Proton{user_input_two} successfully deleted", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
 
 window.close()
