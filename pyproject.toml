@@ -12,7 +12,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "GloriousProtonManager"
-version = "0.0.6"
+version = "0.0.8"
 authors = [
   { name="Loco Motion", email="thelocomotionnn@gmail.com" },
 ]
