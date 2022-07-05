@@ -1,10 +1,18 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = [
+	"setuptools>=61.0",
+	"certifi>=2022.6.15",
+        "charset-normalizer>=2.1.0",
+        "idna>=3.3",
+        "PySimpleGUI>=4.60.1",
+        "requests>=2.28.1",
+        "urllib3>=1.26.9"
+]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "GloriousProtonManager"
-version = "0.0.5"
+version = "0.0.6"
 authors = [
   { name="Loco Motion", email="thelocomotionnn@gmail.com" },
 ]
