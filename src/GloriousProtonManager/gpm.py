@@ -79,6 +79,7 @@ col4 =  [
             [sg.Multiline(size=(120,18),
                 font='DejaVu 11',
                 text_color='#171a21',
+                background_color = BUTTON_COLOR,
                 do_not_clear=False,
                 reroute_stdout=True, 
                 reroute_stderr=True,
