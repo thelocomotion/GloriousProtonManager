@@ -21,7 +21,7 @@ def check_directory_exists():
         sg.popup("GE-Proton directory already created", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
     else:
         print("Creating default GE-Proton directory...\n")
-        os.mkdir(DEFAULT_DIR)
+        os.makedirs(DEFAULT_DIR, exist_ok=True)
         print(f"\n{DEFAULT_DIR} successfully created\n")
 
 def install_latest_update():
