@@ -1,11 +1,20 @@
 #!/usr/bin/env python3
 
+import json
 import os
 import PySimpleGUI as sg
 import requests
 import shutil
 import tarfile
-from constants import DEFAULT_DIR, LAST_VERSION_URL, LAST_FIFTEEN, LAST_VERSION_TAG
+from constants import DEFAULT_DIR, PROTON_GE_LATEST, PROTON_GE_RELEASES, BUTTON_COLOR
+
+r1 = requests.get(PROTON_GE_LATEST)
+r2 = requests.get(PROTON_GE_RELEASES)
+filter_latest = json.loads(r1.text)
+filter_releases = json.loads(r2.text)
+last_version_url = filter_latest['assets'][1]['browser_download_url']
+last_version_tag = filter_latest['tag_name']
+last_fifteen = filter_releases[0:15]
 
 def check_directory_exists():
     if os.path.exists(DEFAULT_DIR) == True:
@@ -17,14 +26,14 @@ def check_directory_exists():
 
 def install_latest_update():
     print("Installing latest version of GE-Proton. This might take a minute or two...")
-    response = requests.get(LAST_VERSION_URL, stream=True)
+    response = requests.get(last_version_url, stream=True)
     file = tarfile.open(fileobj=response.raw, mode="r|gz")
     file.extractall(path=DEFAULT_DIR)
     os.scandir()
 
 def last_fifteen_releases():
     print("Versions available for installation:\n")
-    for x in LAST_FIFTEEN:
+    for x in last_fifteen:
         print(f"- {x['tag_name']}")
 
 def install_old_release():
@@ -50,26 +59,25 @@ def delete_old_release():
 sg.theme('DarkBlue2')
 
 col1 =  [ 
-            [sg.Button('Check if Default GE-Proton Directory Exists', size=(47, 2), font=('DejaVu 9'), button_color='#c7d5e0')],
-            [sg.Button('Update GE-Proton to Latest Version', size=(47, 6), font=('DejaVu 9'), button_color='#c7d5e0')]
+            [sg.Button('Check if Default GE-Proton Directory Exists', size=(47, 2), font=('DejaVu 9'), button_color=BUTTON_COLOR)],
+            [sg.Button('Update GE-Proton to Latest Version', size=(47, 6), font=('DejaVu 9'), button_color=BUTTON_COLOR)]
         ]
 
 col2 =  [ 
-            [sg.Button('1. List Previous Releases (Last 15)', size=(47, 3), font=('DejaVu 9'), button_color='#c7d5e0')],
+            [sg.Button('1. List Previous Releases (Last 15)', size=(47, 3), font=('DejaVu 9'), button_color=BUTTON_COLOR)],
             [sg.Text('2. Select One (e.g 7-15):', font=('DejaVu 9')), sg.InputText(size=[20, 20], font=('DejaVu 12'))],
-            [sg.Button('3. Install Previous Release of GE-Proton', size=(47, 3), font=('DejaVu 9'), button_color='#c7d5e0')]
+            [sg.Button('3. Install Previous Release of GE-Proton', size=(47, 3), font=('DejaVu 9'), button_color=BUTTON_COLOR)]
         ]
 
 col3 =  [
-            [sg.Button('1. List Currently Installed Versions', size=(47, 3), font=('DejaVu 9'), button_color='#c7d5e0')],
+            [sg.Button('1. List Currently Installed Versions', size=(47, 3), font=('DejaVu 9'), button_color=BUTTON_COLOR)],
             [sg.Text('2. Select One (e.g 7-15):', font=('DejaVu 9')), sg.InputText(size=[20, 20], font=('DejaVu 12'))],
-            [sg.Button('3. Delete GE-Proton Version', size=(47, 3), font=('DejaVu 9'), button_color='#c7d5e0')]
+            [sg.Button('3. Delete GE-Proton Version', size=(47, 3), font=('DejaVu 9'), button_color=BUTTON_COLOR)]
         ]
 
 col4 =  [
             [sg.Multiline(size=(120,18),
                 font='DejaVu 11',
-                background_color='#c7d5e0',
                 text_color='#171a21',
                 do_not_clear=False,
                 reroute_stdout=True, 
@@ -78,7 +86,7 @@ col4 =  [
         ]
 
 col5 =  [
-            [sg.Button('Exit', font=('DejaVu 11'), button_color='#c7d5e0')]
+            [sg.Button('Exit', font=('DejaVu 11'), button_color=BUTTON_COLOR)]
         ]
 
 layout = [     
@@ -97,11 +105,11 @@ while True:
         check_directory_exists()
     if event == "Update GE-Proton to Latest Version":
         installed_versions = os.listdir(DEFAULT_DIR)
-        if LAST_VERSION_TAG in installed_versions:
+        if last_version_tag in installed_versions:
             sg.popup("Latest version is already installed", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
         else:
             install_latest_update()
-            sg.popup(f"{LAST_VERSION_TAG} successfully installed", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
+            sg.popup(f"{last_version_tag} successfully installed", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
     if event == "1. List Currently Installed Versions":
         installed_versions = os.listdir(DEFAULT_DIR)
         if len(installed_versions) == 0:
@@ -114,7 +122,7 @@ while True:
         installed_versions = os.listdir(DEFAULT_DIR)
         user_input_one = values[0]
         new_dict = []
-        for x in LAST_FIFTEEN:
+        for x in last_fifteen:
             new_dict.append(x['tag_name'])
         if user_input_one == '':
             sg.popup("Field is empty. Provide a version to install in step 2", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
