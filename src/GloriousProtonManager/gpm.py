@@ -129,9 +129,9 @@ while True:
         for x in last_fifteen:
             new_dict.append(x['tag_name'])
         if user_input_one == '':
-            sg.popup("Field is empty", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
+            sg.popup("Field is empty. Provide a version to install in step 2", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
         elif user_input_one not in str(new_dict):
-            sg.popup(f"Invalid value", title="Glorious Proton Manager (GPM)")
+            sg.popup(f"Invalid value. You can only install one of the versions listed", title="Glorious Proton Manager (GPM)")
         elif user_input_one in str(installed_versions):
             sg.popup(f"This version of GE-Proton is already installed", title="Glorious Proton Manager (GPM)")
         else:
@@ -140,7 +140,7 @@ while True:
     if event == "3. Delete GE-Proton Version":
         user_input_two = values[1]
         if user_input_two == '':
-            sg.popup("Field is empty", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
+            sg.popup("Field is empty. Provide a version to delete in step 2", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
         elif user_input_two not in str(installed_versions):
             sg.popup("This version is not installed on your system", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
         else:
