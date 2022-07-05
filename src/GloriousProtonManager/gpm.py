@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import json
+from operator import ge
 import os
 import PySimpleGUI as sg
 import requests
@@ -25,11 +26,18 @@ def check_directory_exists():
         print(f"\n{DEFAULT_DIR} successfully created\n")
 
 def install_latest_update():
-    print("Installing latest version of GE-Proton. This might take a minute or two...")
-    response = requests.get(last_version_url, stream=True)
-    file = tarfile.open(fileobj=response.raw, mode="r|gz")
-    file.extractall(path=DEFAULT_DIR)
-    os.scandir()
+    if os.path.exists(DEFAULT_DIR) == True:
+        if last_version_tag not in os.listdir(DEFAULT_DIR):
+            print("Installing latest version of GE-Proton. This might take a minute or two...")
+            response = requests.get(last_version_url, stream=True)
+            file = tarfile.open(fileobj=response.raw, mode="r|gz")
+            file.extractall(path=DEFAULT_DIR)
+            os.scandir()
+            sg.popup(f"{last_version_tag} successfully installed", font=('Any 9'), title="Glorious Proton Manager (GPM)")
+        else:
+            sg.popup("Latest version is already installed", font=('Any 9'), title="Glorious Proton Manager (GPM)")
+    else:
+        sg.popup("GE-Proton default directory doesn't exist. Check the Prerequisites", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
 
 def last_fifteen_releases():
     print("Versions available for installation:\n")
@@ -50,11 +58,21 @@ def list_installed_versions():
     for x in sorted(installed_versions, reverse=True):
         print(f"- {x}")
 
-def delete_old_release():
-    ge_del_version = "GE-Proton{0}".format(values[1])
-    print(f"Deleting {ge_del_version}...\n")
-    shutil.rmtree(DEFAULT_DIR + ge_del_version)
-    os.scandir()
+def delete_old_release(): 
+    if os.path.exists(DEFAULT_DIR) == True:
+        user_input_two = values[1]
+        ge_del_version = "GE-Proton{0}".format(values[1])
+        if ge_del_version in os.listdir(DEFAULT_DIR):
+            print(f"Deleting {ge_del_version}...\n")
+            shutil.rmtree(DEFAULT_DIR + ge_del_version)
+            sg.popup(f"GE-Proton{user_input_two} successfully deleted", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
+            os.scandir()
+        elif user_input_two == '':
+            sg.popup("Field is empty. Provide a version to delete in step 2", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
+        else:
+            sg.popup("This version is not installed on your system", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
+    else:
+        sg.popup("Default directory doesn't exist. Check the Prerequisites", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
 
 sg.theme('DarkBlue2')
 
@@ -105,22 +123,18 @@ while True:
     if event == "Check if Default GE-Proton Directory Exists":
         check_directory_exists()
     if event == "Update GE-Proton to Latest Version":
-        installed_versions = os.listdir(DEFAULT_DIR)
-        if last_version_tag in installed_versions:
-            sg.popup("Latest version is already installed", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
-        else:
-            install_latest_update()
-            sg.popup(f"{last_version_tag} successfully installed", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
+        install_latest_update()
     if event == "1. List Currently Installed Versions":
-        installed_versions = os.listdir(DEFAULT_DIR)
-        if len(installed_versions) == 0:
-            print("No GE-Proton versions are installed on your system\n")
+        # installed_versions = os.listdir(DEFAULT_DIR)
+        if os.path.exists(DEFAULT_DIR) == False:
+            sg.popup("GE-Proton default directory doesn't exist. Check the Prerequisites", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
+        elif len(os.listdir(DEFAULT_DIR)) == 0:
+            print("No GE-Proton versions found on your system\n")
         else:
             list_installed_versions()
     if event == "1. List Previous Releases (Last 15)":
         last_fifteen_releases()
     if event == "3. Install Previous Release of GE-Proton":
-        installed_versions = os.listdir(DEFAULT_DIR)
         user_input_one = values[0]
         new_dict = []
         for x in last_fifteen:
@@ -129,19 +143,13 @@ while True:
             sg.popup("Field is empty. Provide a version to install in step 2", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
         elif user_input_one not in str(new_dict):
             sg.popup(f"Invalid value. You can only install one of the versions listed", title="Glorious Proton Manager (GPM)")
-        elif user_input_one in str(installed_versions):
+        elif user_input_one in str(os.listdir(DEFAULT_DIR)):
             sg.popup(f"This version of GE-Proton is already installed", title="Glorious Proton Manager (GPM)")
         else:
             install_old_release()
             sg.popup(f"GE-Proton{values[0]} successfully installed", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
+
     if event == "3. Delete GE-Proton Version":
-        user_input_two = values[1]
-        if user_input_two == '':
-            sg.popup("Field is empty. Provide a version to delete in step 2", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
-        elif user_input_two not in str(installed_versions):
-            sg.popup("This version is not installed on your system", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
-        else:
-            delete_old_release()
-            sg.popup(f"GE-Proton{user_input_two} successfully deleted", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
+        delete_old_release()
 
 window.close()
