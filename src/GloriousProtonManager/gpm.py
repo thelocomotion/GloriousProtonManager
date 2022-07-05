@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 
-import os
-import sys
-import PySimpleGUI as sg
 import json
+import os
+import PySimpleGUI as sg
 import requests
 import shutil
 import tarfile
