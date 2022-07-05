@@ -19,5 +19,5 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/pypa/GloriousProtonManager"
-"Bug Tracker" = "https://github.com/pypa/GloriousProtonManager/issues"
+"Homepage" = "https://github.com/thelocomotion/GloriousProtonManager"
+"Bug Tracker" = "https://github.com/thelocomotion/GloriousProtonManager/issues"
