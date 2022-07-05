@@ -1,0 +1,7 @@
+certifi
+charset-normalizer
+idna
+PySimpleGUI
+requests
+urllib3
+scikit-learn

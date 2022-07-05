@@ -1,9 +1,11 @@
 LICENSE
 README.md
-pyproject.toml
+setup.cfg
+setup.py
 src/GloriousProtonManager/__init__.py
 src/GloriousProtonManager/gpm.py
 src/GloriousProtonManager.egg-info/PKG-INFO
 src/GloriousProtonManager.egg-info/SOURCES.txt
 src/GloriousProtonManager.egg-info/dependency_links.txt
+src/GloriousProtonManager.egg-info/requires.txt
 src/GloriousProtonManager.egg-info/top_level.txt
