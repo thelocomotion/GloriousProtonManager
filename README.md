@@ -4,9 +4,20 @@ Introduction
 
 [ge-proton-url]: https://github.com/GloriousEggroll/proton-ge-custom
 
+Dependencies
+------------
+GPM requires python3-tkinter (Fedora) / python3-tk (Ubuntu). You can install it with this command:
+```bash
+Fedora:
+sudo dnf install python3-tkinter
+```
+```bash
+Ubuntu:
+sudo apt install python3-tk
+```
+
 Installation
 ------------
-
 ## From Source
 You can clone the repository with this command:
 ```bash
@@ -27,18 +38,6 @@ Locate gpm.py and then run:
 ```
 chmod +x gpm.py
 ./gpm.py
-```
-
-Dependencies
-------------
-GPM requires python3-tkinter (Fedora) / python3-tk (Ubuntu). You can install it with this command:
-```bash
-Fedora:
-sudo dnf install python3-tkinter
-```
-```bash
-Ubuntu:
-sudo apt install python3-tk
 ```
 
 Usage

@@ -22,7 +22,7 @@ def check_directory_exists():
     else:
         print("Creating default GE-Proton directory...\n")
         os.makedirs(DEFAULT_DIR, exist_ok=True)
-        print(f"\n{DEFAULT_DIR} successfully created\n")
+        print(f"{DEFAULT_DIR} successfully created\n")
 
 def install_latest_update():
     if os.path.exists(DEFAULT_DIR) == True:
