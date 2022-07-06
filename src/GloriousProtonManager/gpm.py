@@ -6,7 +6,8 @@ import PySimpleGUI as sg
 import requests
 import shutil
 import tarfile
-from constants import DEFAULT_DIR, PROTON_GE_LATEST, PROTON_GE_RELEASES, BUTTON_COLOR
+from constants import DEFAULT_DIR, PROTON_GE_LATEST, PROTON_GE_RELEASES
+from constants import BUTTON_COLOR
 
 r1 = requests.get(PROTON_GE_LATEST)
 r2 = requests.get(PROTON_GE_RELEASES)
@@ -52,7 +53,7 @@ def install_old_release():
     print("Installation complete\n")
 
 def list_installed_versions():
-    print("Currently these GE-Proton versions are installed in your system:\n")
+    print("Currently these GE-Proton versions are installed on your system:\n")
     for x in sorted(os.listdir(DEFAULT_DIR), reverse=True):
         print(f"- {x}")
 
