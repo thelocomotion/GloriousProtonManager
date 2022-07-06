@@ -2,9 +2,9 @@ from setuptools import setup, find_packages
 
 setup(
     name='GloriousProtonManager',
-    version='0.26',
+    version='0.28',
     python_requires='>=3.10',
-    description='Manage GE-Proton with a simple UI',
+    description='Manage GE-Proton from a simple UI',
     license='GNU General Public License v3 (GPLv3)',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',

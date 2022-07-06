@@ -62,3 +62,11 @@ This column is divided into 3 different steps, which the user should ideally fol
 
 ## Removals
 Another 3 step column. Works the same way as the other menu. The application checks to see which releases are installed and allows you to delete them once the version value is provided as input. If the field is left empty or an invalid value is provided the application will also show a popup warning message.
+
+Known bugs
+----------
+Other than improving the code, there are 2 bugs that I'm currently working on:
+
+- During the install process, the "Installing" message doesn't display until the installation is finished so it might seem as if the application is stuck. Just let it run. Eventually I'd like to add a progress bar or something to display the process better.
+
+- Getting the interface to look the same across different platforms and distros is a challenge with PySimpleGUI. The app will look as it should in Fedora but it might look slightly off in distros like Ubuntu or OpenSUSE.
