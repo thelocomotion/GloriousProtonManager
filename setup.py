@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='GloriousProtonManager',
-    version='0.34',
+    version='0.35',
     python_requires='>=3.10',
     description='Manage Proton-GE from a simple UI',
     license='GNU General Public License v3 (GPLv3)',
