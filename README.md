@@ -4,6 +4,8 @@ Introduction
 
 [ge-proton-url]: https://github.com/GloriousEggroll/proton-ge-custom
 
+![GPM Screenshot](.github/images/GPM.png)
+
 Dependencies
 ------------
 GPM requires python3-tkinter (Fedora) / python3-tk (Ubuntu). You can install it with this command:
