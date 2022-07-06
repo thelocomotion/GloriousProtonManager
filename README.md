@@ -70,8 +70,6 @@ Another 3 step column. Works the same way as the other menu. It checks which rel
 
 Known bugs
 ------------
-Other than improving the code, there are 2 bugs that I am currently working on:
-
-- The "Installing" message is not shown until the installation is done during the install process, so it might look like tit is stuck. Just let it run. I would like to eventually add a progress bar or something to show the process better.
+List of bugs:
 
 - Making the interface look the same across distinct platforms and distros is a challenge with PySimpleGUI. It will look good in Fedora, but it might look mildly off in distros like Ubuntu or OpenSUSE.
