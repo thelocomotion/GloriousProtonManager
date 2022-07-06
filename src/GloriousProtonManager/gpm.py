@@ -18,7 +18,7 @@ last_version_tag = filter_latest['tag_name']
 last_fifteen = filter_releases[0:15]
 
 def check_directory_exists():
-    if os.path.exists(DEFAULT_DIR) == True:
+    if os.path.exists(DEFAULT_DIR):
         sg.popup("GE-Proton directory already created", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
     else:
         print("Creating default GE-Proton directory...\n")
@@ -26,7 +26,7 @@ def check_directory_exists():
         print(f"{DEFAULT_DIR} successfully created\n")
 
 def install_latest_update():
-    if os.path.exists(DEFAULT_DIR) == True:
+    if os.path.exists(DEFAULT_DIR):
         if last_version_tag not in os.listdir(DEFAULT_DIR):
             print("Installing latest version of GE-Proton. This might take a minute or two...")
             response = requests.get(last_version_url, stream=True)
@@ -58,7 +58,7 @@ def list_installed_versions():
         print(f"- {x}")
 
 def delete_old_release(): 
-    if os.path.exists(DEFAULT_DIR) == True:
+    if os.path.exists(DEFAULT_DIR):
         user_input_two = values[1]
         ge_del_version = "GE-Proton{0}".format(values[1])
         if ge_del_version in os.listdir(DEFAULT_DIR):
