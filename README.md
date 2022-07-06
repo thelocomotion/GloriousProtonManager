@@ -58,13 +58,13 @@ What you can do with this tool
 GPM is divided into 3 different columns: **Prerequisites and Updates**, **Old releases** and **Removals**.
 
 ## Prerequisites
-This button checks whether the default directory **(~/.steam/root/compatibilitytools.d)** where Proton-GE releases should be installed exists. If it does not, it will be created.
+This button checks if the default directory **(~/.steam/root/compatibilitytools.d)** where Proton-GE releases should be installed exists. If it does not, it will be created.
 
 ## Updates
-This button checks whether the last version of Proton-GE is installed on your system. If it is, a message saying so will be shown. Otherwise it will be installed.
+This button checks if the last version of Proton-GE is installed on your system. If it is, a message saying so will be shown. Otherwise it will be installed.
 
 ## Old releases
-This column is divided into 3 different steps, which the user ideally should follow in order. First list the releases, then select one from the list by typing its version and lastly press the Install button. I decided to show only the last 15 releases as anything older felt irrelevant. The application will say so with a popup warning message if the field is left empty or an invalid value is given.
+This column is divided into 3 different steps, which the user should follow in order. First list the releases, then select one from the list by typing its version and lastly press the Install button. I decided to show only the last 15 releases as anything older felt irrelevant. It will say so with a popup warning message if the field is left empty or an invalid value is given.
 
 ## Removals
 Another 3 step column. Works the same way as the other menu. It checks which releases are installed and allows you to delete them once the version value is given as input. It will also show a popup warning message if the field is left empty or an invalid value is given.
