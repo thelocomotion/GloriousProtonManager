@@ -1,3 +1,6 @@
-# List of directories and files to ignore
 /dist
-/__pycache__
+__pycache__/
+eggs/
+.eggs/
+*.egg
+*.egg-info/
