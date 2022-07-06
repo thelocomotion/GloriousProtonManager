@@ -1,10 +1,9 @@
 Introduction
 ------------
-**Glorious Proton Manager (GPM)** is a tool that allows Linux users to delete and install old and new releases of [Proton-GE][ge-proton-url] as they come out. Giving a UI for this felt needed as the number of new users gaming on Linux is growing thanks to Valve, Wine and other open source projects.
+**Glorious Proton Manager (GPM)** is a tool that allows Linux users to delete and install old and new [Proton-GE][proton-ge-url] releases as they come out. Giving a UI for this felt needed as the number of new users gaming on Linux is growing thanks to Valve, Wine and other open source projects.
 
-[ge-proton-url]: https://github.com/GloriousEggroll/proton-ge-custom
-
-![GPM Screenshot](.github/images/GPM.png)
+[proton-ge-url]: https://github.com/GloriousEggroll/proton-ge-custom
+![GPM screenshot](.github/images/GPM.png)
 
 Dependencies
 ------------
