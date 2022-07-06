@@ -4,7 +4,7 @@ setup(
     name='GloriousProtonManager',
     version='0.32',
     python_requires='>=3.10',
-    description='Manage GE-Proton from a simple UI',
+    description='Manage Proton-GE from a simple UI',
     license='GNU General Public License v3 (GPLv3)',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
