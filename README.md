@@ -8,7 +8,7 @@ Introduction
 
 Dependencies
 ------------
-GPM requires python3-tkinter (Fedora) / python3-tk (Ubuntu). You can install it with this command:
+GPM requires python3-tkinter (Fedora) / python3-tk (Ubuntu, openSUSE Leap). You can install it with this command:
 ```bash
 Fedora:
 sudo dnf install python3-tkinter
@@ -16,6 +16,10 @@ sudo dnf install python3-tkinter
 ```bash
 Ubuntu:
 sudo apt install python3-tk
+```
+```bash
+openSUSE Leap:
+sudo zypper in python3-tk
 ```
 
 Installation
