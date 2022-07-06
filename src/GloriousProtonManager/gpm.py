@@ -28,7 +28,7 @@ def see_directory_exists():
 def install_latest_update():
     if os.path.exists(DEFAULT_DIR):
         if last_version_tag not in os.listdir(DEFAULT_DIR):
-            print("Installing latest version of Proton-GE. It might take a while.")
+            print("Installing latest Proton-GE version. It might take a while.")
             window.refresh()
             response = requests.get(last_version_url, stream=True)
             file = tarfile.open(fileobj=response.raw, mode="r|gz")
@@ -41,13 +41,13 @@ def install_latest_update():
         sg.popup("Default directory does not exist. See the prerequisites", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
 
 def last_fifteen_releases():
-    print("Versions available for installation:\n")
+    print("Versions available to install:\n")
     for x in last_fifteen:
         print(f"- {x['tag_name']}")
 
 def install_old_release():
     old_release = "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton{0}/GE-Proton{0}.tar.gz".format(values[0])
-    print(f"Downloading and extracting Proton-GE {values[0]}. This might take a while.\n")
+    print(f"Downloading and extracting Proton-GE {values[0]}. It might take a while.\n")
     window.refresh()
     response = requests.get(old_release, stream=True)
     file = tarfile.open(fileobj=response.raw, mode="r|gz")
@@ -55,7 +55,7 @@ def install_old_release():
     print("Installation done\n")
 
 def list_installed_versions():
-    print("Currently these Proton-GE versions are installed on your system:\n")
+    print("These Proton-GE versions are currently installed on your system:\n")
     for x in sorted(os.listdir(DEFAULT_DIR), reverse=True):
         print(f"- {x}")
 
@@ -84,13 +84,13 @@ col1 =  [
 
 col2 =  [ 
             [sg.Button('1. List past releases (Last 15)', size=(47, 3), font=('DejaVu 9'), button_color=BUTTON_COLOR)],
-            [sg.Text('2. Select one (e.g 7-15):', font=('DejaVu 9')), sg.InputText(size=[20, 20], font=('DejaVu 12'))],
+            [sg.Text('2. Pick one (e.g. 7-15):', font=('DejaVu 9')), sg.InputText(size=[20, 20], font=('DejaVu 12'))],
             [sg.Button('3. Install past Proton-GE release', size=(47, 3), font=('DejaVu 9'), button_color=BUTTON_COLOR)]
         ]
 
 col3 =  [
             [sg.Button('1. List currently installed versions', size=(47, 3), font=('DejaVu 9'), button_color=BUTTON_COLOR)],
-            [sg.Text('2. Select one (e.g 7-15):', font=('DejaVu 9')), sg.InputText(size=[20, 20], font=('DejaVu 12'))],
+            [sg.Text('2. Pick one (e.g. 7-15):', font=('DejaVu 9')), sg.InputText(size=[20, 20], font=('DejaVu 12'))],
             [sg.Button('3. Delete Proton-GE version', size=(47, 3), font=('DejaVu 9'), button_color=BUTTON_COLOR)]
         ]
 
@@ -132,7 +132,7 @@ while True:
             print("No Proton-GE versions found on your system\n")
         else:
             list_installed_versions()
-    if event == "1. List past releases (Last 15)":
+    if event == "1. List last 15 releases":
         last_fifteen_releases()
     if event == "3. Install past Proton-GE release":
         user_input_one = values[0]
