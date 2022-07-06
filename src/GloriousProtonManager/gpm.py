@@ -29,6 +29,7 @@ def install_latest_update():
     if os.path.exists(DEFAULT_DIR):
         if last_version_tag not in os.listdir(DEFAULT_DIR):
             print("Installing latest version of Proton-GE. It might take a while.")
+            window.refresh()
             response = requests.get(last_version_url, stream=True)
             file = tarfile.open(fileobj=response.raw, mode="r|gz")
             file.extractall(path=DEFAULT_DIR)
@@ -47,6 +48,7 @@ def last_fifteen_releases():
 def install_old_release():
     old_release = "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton{0}/GE-Proton{0}.tar.gz".format(values[0])
     print(f"Downloading and extracting Proton-GE {values[0]}. This might take a while.\n")
+    window.refresh()
     response = requests.get(old_release, stream=True)
     file = tarfile.open(fileobj=response.raw, mode="r|gz")
     file.extractall(path=DEFAULT_DIR)
