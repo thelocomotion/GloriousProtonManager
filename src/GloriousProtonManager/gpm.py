@@ -93,7 +93,7 @@ col3 =  [
         ]
 
 col4 =  [
-            [sg.Multiline(size=(120,18),
+            [sg.Multiline(size=(115, 18),
                 font='DejaVu 11',
                 text_color='#171a21',
                 background_color = BUTTON_COLOR,
@@ -108,7 +108,7 @@ col5 =  [
         ]
 
 layout = [     
-            [sg.Frame('Prerequisites & Updates', col1, size=(325, 200)), sg.Frame('Old Releases', col2, size=(325, 200)), sg.Frame('Removals', col3, size=(325, 200))],
+            [sg.Frame('Prerequisites & Updates', col1, size=(325, 190)), sg.Frame('Old Releases', col2, size=(325, 190)), sg.Frame('Removals', col3, size=(325, 190))],
             [sg.Column(col4)],
             [sg.Column(col5)],
          ]
