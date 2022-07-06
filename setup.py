@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='GloriousProtonManager',
-    version='0.29',
+    version='0.31',
     python_requires='>=3.10',
     description='Manage GE-Proton from a simple UI',
     license='GNU General Public License v3 (GPLv3)',
@@ -15,7 +15,8 @@ setup(
     url='https://github.com/thelocomotion/GloriousProtonManager',
     keywords='proton proton-ge wine linux valve',
     install_requires=[
-        'PySimpleGUI'
+        'PySimpleGUI',
+        'requests'
     ],
     include_package_data=True,
     classifiers=[
