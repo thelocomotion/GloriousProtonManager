@@ -62,7 +62,7 @@ def list_installed_versions():
 def delete_old_release(): 
     if os.path.exists(DEFAULT_DIR):
         user_input_two = values[1]
-        ge_del_version = "Proton-GE{0}".format(values[1])
+        ge_del_version = "GE-Proton{0}".format(values[1])
         if ge_del_version in os.listdir(DEFAULT_DIR):
             print(f"Deleting {ge_del_version}...\n")
             shutil.rmtree(DEFAULT_DIR + ge_del_version)
