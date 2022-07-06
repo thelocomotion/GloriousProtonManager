@@ -36,7 +36,7 @@ def install_latest_update():
         else:
             sg.popup("Latest version is already installed", font=('Any 9'), title="Glorious Proton Manager (GPM)")
     else:
-        sg.popup("GE-Proton default directory doesn't exist. Check the Prerequisites", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
+        sg.popup("Default directory doesn't exist. Check the prerequisites", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
 
 def last_fifteen_releases():
     print("Versions available for installation:\n")
@@ -70,7 +70,7 @@ def delete_old_release():
         else:
             sg.popup("This version is not installed on your system", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
     else:
-        sg.popup("Default directory doesn't exist. Check the Prerequisites", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
+        sg.popup("Default directory doesn't exist. Check the prerequisites", font=('DejaVu 9'), title="Glorious Proton Manager (GPM)")
 
 sg.theme('DarkBlue2')
 
