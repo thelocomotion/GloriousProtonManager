@@ -55,7 +55,7 @@ To run GPM type:
 
 What you can do with this tool
 ------------------------------
-GPM is divided into 3 different columns: **Prerequisites and Updates**, **Old releases** and **Removals**.
+GPM is divided into 3 different columns: **Prerequisites and updates**, **Old releases** and **Removals**.
 
 ## Prerequisites
 This button checks if the default directory **(~/.steam/root/compatibilitytools.d)** where Proton-GE releases should be installed exists. It will be created if it does not.
