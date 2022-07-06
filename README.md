@@ -21,6 +21,10 @@ sudo apt install python3-tk
 openSUSE Leap:
 sudo zypper in python3-tk
 ```
+```bash
+Arch Linux:
+sudo pacman -S tk
+```
 
 Installation
 ------------
