@@ -46,7 +46,7 @@ It is split into 3 columns: **Prerequisites & updates**, **Old versions** & **Re
 ### Prerequisites
 Sees if the default directory **(~/.steam/root/compatibilitytools.d)** where Proton-GE versions should be installed exists. Creates it if it does not.
 ### Updates
-Sees if the latest Proton-GE version is installed on your system. Shows a message saying so if it is. Installs it if it does not.
+Sees if the latest Proton-GE version is installed on your system. Shows a message saying so if it is. Installs it if it is not.
 ### Old versions
 Split into 3 steps, which should be followed in order:
 1. List the versions.
