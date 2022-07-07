@@ -1,55 +1,60 @@
 # Glorious Proton Manager
-**Glorious Proton Manager (GPM)** is a tool that allows Linux users to delete and install old and new [Proton-GE](https://github.com/GloriousEggroll/proton-ge-custom) versions as they come out. Giving a GUI for this felt needed, as the number of Linux gamers is growing thanks to Valve, Wine and other open source projects.
+A tool that allows Linux users to delete & install old & new [Proton-GE](https://github.com/GloriousEggroll/proton-ge-custom) versions as they come out. Making a GUI for it felt needed, as the number of Linux gamers is growing thanks to Valve, Wine & other open source projects.
 
 ![GPM screenshot](.github/images/GPM.png)
-## Dependencies
-GPM needs python3-tkinter (Fedora)/python3-tk (Ubuntu or openSUSE Leap). You can install it with the command:
-### Fedora
+## Installation
+### Dependencies
+It needs python3-tkinter (Fedora)/python3-tk (Ubuntu & openSUSE Leap). To install it, run:
+#### Fedora
 ```
 sudo dnf install python3-tkinter
 ```
-### Ubuntu
-```
-sudo apt install python3-tk
-```
-### openSUSE Leap
+#### openSUSE Leap
 ```
 sudo zypper in python3-tk
 ```
-## Installation
+#### Ubuntu
+```
+sudo apt install python3-tk
+```
 ### From source
-You can clone the repository with the command:
+To clone the repository, run:
 ```
 git clone https://github.com/thelocomotion/GloriousProtonManager.git
 ```
-You can enter the directory once the repository is cloned and run:
+Open the directory once the repository is cloned & run:
 ```
 pip3 install -r requirements.txt
 ```
-It will install the needed Python modules to run GPM.
+It will install the needed Python modules to run it.
 ### Using pip
 ```
 pip3 install GloriousProtonManager
 ```
-Locate gpm.py and run:
+Locate gpm.py & run:
 ```
 chmod +x gpm.py
 ./gpm.py
 ```
 ## Usage
-To run GPM, type:
+To run it, type:
 ```bash
 ./gpm.py
 ```
 ## Features
-GPM is split into 3 different columns: **Prerequisites and updates**, **Old versions** and **Removals**.
+It is split into 3 columns: **Prerequisites & updates**, **Old versions** & **Removals**.
 ### Prerequisites
-This button sees if the default directory **(~/.steam/root/compatibilitytools.d)** where Proton-GE versions should be installed exists. It will be created if it does not.
+Sees if the default directory **(~/.steam/root/compatibilitytools.d)** where Proton-GE versions should be installed exists. Creates it if it does not.
 ### Updates
-This button sees if the latest Proton-GE version is installed on your system. A message saying so will be shown if it is. Otherwise it will be installed.
+Sees if the latest Proton-GE version is installed on your system. Shows a message saying so if it is. Installs it if it does not.
 ### Old versions
-This column is divided into 3 different steps, which the user should follow in order. First list the versions, then pick one from the list by typing its version and lastly click the Install button. I decided to show only the last 15 versions, as older versions felt pointless. It will say so with a popup warning message if the field is left empty or an invalid value is given.
+Split into 3 steps, which should be followed in order:
+1. List the versions.
+2. Pick one from the list by typing its version.
+3. Click on the Install button.
+
+I decided to show only the last 15 versions, as older versions felt pointless. It will show a popup warning message if the field is left empty or an invalid value is given.
 ### Removals
-Another 3 step column. Works the same way as the other menu. It sees which versions are installed and allows you to delete them once the version value is given as input. It will also show a popup warning message if the field is left empty or an invalid value is given.
+Sees which versions are installed. Allows you to delete them once the version value is given as input. Works the same way as the other menu. Also shows a popup warning message if the field is left empty or an invalid value is given.
 ## Known bugs
-- Making the GUI look identical on distinct platforms and distros is hard with PySimpleGUI. It will look fine on Fedora, but may look a bit off on distros like Ubuntu or OpenSUSE.
+- Making the GUI look identical across platforms & distros is hard with PySimpleGUI. It will look fine on Fedora, but may look a bit off on distros like Ubuntu or OpenSUSE.
