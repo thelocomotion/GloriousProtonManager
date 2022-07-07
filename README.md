@@ -1,75 +1,59 @@
-Introduction
-------------
-**Glorious Proton Manager (GPM)** is a tool that allows Linux users to delete and install old and new [Proton-GE][proton-ge-url] releases as they come out. Giving a UI for this felt needed as the number of new users gaming on Linux is growing thanks to Valve, Wine and other open source projects.
+# Glorious Proton Manager
+**Glorious Proton Manager (GPM)** is a tool that allows Linux users to delete and install old and new [Proton-GE][proton-ge-url] versions as they come out. Giving a GUI for this felt needed, as the number of gamers on Linux is growing thanks to Valve, Wine and other open source projects.
 
 [proton-ge-url]: https://github.com/GloriousEggroll/proton-ge-custom
 ![GPM screenshot](.github/images/GPM.png)
-
-Dependencies
-------------
+## Dependencies
 GPM needs python3-tkinter (Fedora)/python3-tk (Ubuntu or openSUSE Leap). You can install it with the command:
-```bash
-Fedora:
+
+
+### Fedora
+```
 sudo dnf install python3-tkinter
 ```
-```bash
+### Ubuntu
+```
 Ubuntu:
 sudo apt install python3-tk
 ```
-```bash
-openSUSE Leap:
+### openSUSE Leap
+```
 sudo zypper in python3-tk
 ```
-
-Installation
-------------
-## From source
+## Installation
+### From source
 You can clone the repository with the command:
-```bash
+```
 git clone https://github.com/thelocomotion/GloriousProtonManager.git
 ```
-
-Once the repository is cloned, you can enter the directory and run:
-```bash
+You can enter the directory once the repository is cloned and run:
+```
 pip3 install -r requirements.txt
 ```
 It will install the needed Python modules to run GPM.
-
-## Using pip
+### Using pip
 ```
 pip3 install GloriousProtonManager
 ```
-Locate gpm.py and then run:
+Locate gpm.py and run:
 ```
 chmod +x gpm.py
 ./gpm.py
 ```
-
-Usage
-------------
-To run GPM type:
+## Usage
+To run GPM, type:
 ```bash
 ./gpm.py
 ```
-
-What you can do with this tool
-------------------------------
-GPM is divided into 3 different columns: **Prerequisites and updates**, **Old releases** and **Removals**.
-
-## Prerequisites
-This button checks if the default directory **(~/.steam/root/compatibilitytools.d)** where Proton-GE releases should be installed exists. It will be created if it does not.
-
-## Updates
-This button checks if the last version of Proton-GE is installed on your system. A message saying so will be shown if it is. Otherwise it will be installed.
-
-## Old releases
-This column is divided into 3 different steps, which the user should follow in order. First list the releases, then select one from the list by typing its version and lastly press the Install button. I decided to show only the last 15 releases as anything older felt irrelevant. It will say so with a popup warning message if the field is left empty or an invalid value is given.
-
-## Removals
-Another 3 step column. Works the same way as the other menu. It checks which releases are installed and allows you to delete them once the version value is given as input. It will also show a popup warning message if the field is left empty or an invalid value is given.
-
-Known bugs
-------------
-List of bugs:
-
+## Features
+GPM is divided into 3 different columns: **Prerequisites and updates**, **Old versions** and **Removals**.
+### Prerequisites
+This button sees if the default directory **(~/.steam/root/compatibilitytools.d)** where Proton-GE versions should be installed exists. It will be created if it does not.
+### Updates
+This button sees if the last Proton-GE version is installed on your system. A message saying so will be shown if it is. Otherwise it will be installed.
+### Old versions
+This column is divided into 3 different steps, which the user should follow in order. First list the versions, then select one from the list by typing its version and lastly press the Install button. I decided to show only the last 15 versions, as older versions felt irrelevant. It will say so with a popup warning message if the field is left empty or an invalid value is given.
+### Removals
+Another 3 step column. Works the same way as the other menu. It sees which versions are installed and allows you to delete them once the version value is given as input. It will also show a popup warning message if the field is left empty or an invalid value is given.
+## Known bugs
 - Making the interface look the same across distinct platforms and distros is a challenge with PySimpleGUI. It will look good in Fedora, but it might look mildly off in distros like Ubuntu or OpenSUSE.
