@@ -1,21 +1,11 @@
 #!/usr/bin/env python3
 
-import json
 import os
 import PySimpleGUI as sg
 import requests
 import shutil
 import tarfile
-from constants import DEFAULT_DIR, PROTON_GE_LATEST, PROTON_GE_RELEASES
-from constants import BUTTON_COLOR
-
-r1 = requests.get(PROTON_GE_LATEST)
-r2 = requests.get(PROTON_GE_RELEASES)
-filter_latest = json.loads(r1.text)
-filter_versions = json.loads(r2.text)
-latest_version_url = filter_latest['assets'][1]['browser_download_url']
-latest_version_tag = filter_latest['tag_name']
-last_fifteen = filter_versions[0:15]
+from settings import *
 
 def see_directory_exists():
     '''
@@ -38,13 +28,13 @@ def install_latest_update():
     
     '''
     if os.path.exists(DEFAULT_DIR):
-        if latest_version_tag not in os.listdir(DEFAULT_DIR):
+        if LATEST_VERSION_TAG not in os.listdir(DEFAULT_DIR):
             print("Installing latest Proton-GE version. It might take a while.")
             window.refresh()
-            response = requests.get(latest_version_url, stream=True)
+            response = requests.get(LATEST_VERSION_URL, stream=True)
             file = tarfile.open(fileobj=response.raw, mode="r|gz")
             file.extractall(path=DEFAULT_DIR)
-            sg.popup(f"{latest_version_tag} successfully installed", font=('Any 9'), title="Glorious Proton Manager")
+            sg.popup(f"{LATEST_VERSION_TAG} successfully installed", font=('Any 9'), title="Glorious Proton Manager")
         else:
             sg.popup("Latest version is already installed", font=('Any 9'), title="Glorious Proton Manager")
     else:
@@ -55,7 +45,7 @@ def last_fifteen_versions():
     Prints last 15 versions available
     '''
     print("Versions available to install:\n")
-    for x in last_fifteen:
+    for x in LAST_FIFTEEN:
         print(f"- {x['tag_name']}")
 
 def install_old_version():
@@ -166,7 +156,7 @@ while True:
     if event == "3. Install past Proton-GE version":
         user_input_one = values[0]
         new_dict = []
-        for x in last_fifteen:
+        for x in LAST_FIFTEEN:
             new_dict.append(x['tag_name'])
         if user_input_one == '':
             sg.popup("Field is empty. Give a version to install in step 2", font=('DejaVu 9'), title="Glorious Proton Manager")
