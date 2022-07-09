@@ -43,7 +43,7 @@ def main():
             ]
 
     layout = [     
-                [sg.Frame('Prerequisites & updates', col1, size=(325, 190)), sg.Frame('Old versions', col2, size=(325, 190)), sg.Frame('Removals', col3, size=(325, 190))],
+                [sg.Frame('Prerequisites & updates', col1, size=(325, 190), expand_x=True, expand_y=True), sg.Frame('Old versions', col2, size=(325, 190), expand_x=True, expand_y=True), sg.Frame('Removals', col3, size=(325, 190), expand_x=True, expand_y=True)],
                 [sg.Column(col4, expand_x=True)],
                 [sg.Column(col5)],
             ]
