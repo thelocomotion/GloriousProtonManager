@@ -44,4 +44,3 @@ Sees which versions are installed. Allows you to delete them once the version va
 ## Known bugs
 - Making the GUI look identical across platforms & distros is hard with PySimpleGUI. It will look fine on Fedora, but may look a bit off on distros like Ubuntu or OpenSUSE.
 - When closing the application the 'Exit' button has to be pressed twice.
-- In previous versions of GPM whenever any of the 'Install' buttons (Old or New versions) were pressed, the window would refresh before downloading to print an output message to screen, letting the user know that the installation was happening. After I moved all the PySimpleGUI code to the main function this became problematic. sg.window.refresh() is commented out until I find a solution.
