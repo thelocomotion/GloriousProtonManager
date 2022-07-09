@@ -32,8 +32,8 @@ def last_fifteen_versions():
     Print last 15 versions
     '''
     print("Versions available to install:\n")
-    for x in LAST_FIFTEEN:
-        print(f"- {x['tag_name']}")
+    for release in LAST_FIFTEEN:
+        print(f"- {release['tag_name']}")
 
 def install_old_version():
     '''
@@ -49,8 +49,8 @@ def list_installed_versions():
     Check installed versions in default directory and sort them out in reverse
     '''
     print("These Proton-GE versions are currently installed on your system:\n")
-    for x in sorted(listdir(DEFAULT_DIR), reverse=True):
-        print(f"- {x}")
+    for version_found in sorted(listdir(DEFAULT_DIR), reverse=True):
+        print(f"- {version_found}")
 
 def delete_old_version():
     '''

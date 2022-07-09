@@ -66,7 +66,7 @@ def main():
         if event == "Update Proton-GE to latest version":
             if exists(DEFAULT_DIR):
                 if LATEST_VERSION_TAG not in listdir(DEFAULT_DIR):
-                    print("Installing latest Proton-GE version. It might take a while.")
+                    print("Installing latest Proton-GE version. It might take a while...")
                     window.refresh()
                     install_latest_update()
                     sg.popup(f"{LATEST_VERSION_TAG} successfully installed", font=('Any 9'), title="Glorious Proton Manager")
@@ -86,31 +86,31 @@ def main():
             last_fifteen_versions()
  
         if event == "3. Install past Proton-GE version":
-            user_input_one = sg.values[0]
+            install_old_input = sg.values[0]
             new_dict = []
-            for x in LAST_FIFTEEN:
-                new_dict.append(x['tag_name'])
-            if user_input_one == '':
+            for release in LAST_FIFTEEN:
+                new_dict.append(release['tag_name'])
+            if install_old_input == '':
                 sg.popup("Field is empty. Give a version to install in step 2", font=('DejaVu 9'), title="Glorious Proton Manager")
-            elif user_input_one not in str(new_dict):
+            elif install_old_input not in str(new_dict):
                 sg.popup(f"Invalid value. You can only install one of the versions listed", title="Glorious Proton Manager")
-            elif user_input_one in str(listdir(DEFAULT_DIR)):
+            elif install_old_input in str(listdir(DEFAULT_DIR)):
                 sg.popup(f"This Proton-GE version is already installed", title="Glorious Proton Manager")
             else:
-                print(f"Downloading and extracting Proton-GE {sg.values[0]}. It might take a while.\n")
+                print(f"Downloading and extracting Proton-GE{sg.values[0]}. It might take a while.\n")
                 window.refresh()
                 install_old_version()
-                sg.popup(f"Proton-GE {sg.values[0]} successfully installed", font=('DejaVu 9'), title="Glorious Proton Manager")
+                sg.popup(f"Proton-GE{sg.values[0]} successfully installed", font=('DejaVu 9'), title="Glorious Proton Manager")
  
         if event == "3. Delete Proton-GE version":
-            user_input_two = sg.values[1]
+            delete_release_input = sg.values[1]
             ge_del_version = "GE-Proton{0}".format(sg.values[1])
             if exists(DEFAULT_DIR):
                 if ge_del_version in listdir(DEFAULT_DIR):
                     print(f"Deleting {ge_del_version}...\n")
                     delete_old_version()
-                    sg.popup(f"Proton-GE {user_input_two} successfully deleted", font=('DejaVu 9'), title="Glorious Proton Manager")
-                elif user_input_two == '':
+                    sg.popup(f"Proton-GE {delete_release_input} successfully deleted", font=('DejaVu 9'), title="Glorious Proton Manager")
+                elif delete_release_input == '':
                     sg.popup("Field is empty. Give a version to delete in step 2", font=('DejaVu 9'), title="Glorious Proton Manager")
                 else:
                     sg.popup("This version is not installed on your system", font=('DejaVu 9'), title="Glorious Proton Manager")
