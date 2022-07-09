@@ -1,7 +1,7 @@
 # Glorious Proton Manager
 A tool that allows Linux users to delete & install old & new [Proton-GE](https://github.com/GloriousEggroll/proton-ge-custom) versions as they come out. Making a GUI for it felt needed; the number of Linux gamers is growing thanks to Valve, Wine & other open source projects.
 
-![GPM screenshot](.github/images/gpm.png)
+![GPM screenshot](.github/images/glorious.png)
 ## Installation
 ### Dependencies
 It needs python3-tkinter (Fedora)/python3-tk (Ubuntu & openSUSE Leap). To install it, run:
