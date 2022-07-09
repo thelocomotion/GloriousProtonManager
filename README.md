@@ -17,29 +17,14 @@ sudo zypper in python3-tk
 ```
 sudo apt install python3-tk
 ```
-### From source
-To clone the repository, run:
-```
-git clone https://github.com/thelocomotion/GloriousProtonManager.git
-```
-Open the directory once the repository is cloned & run:
-```
-pip3 install -r requirements.txt
-```
-It will install the needed Python modules to run it.
-### Using pip
+### Install using pip
 ```
 pip3 install GloriousProtonManager
 ```
-Locate gpm.py & run:
-```
-chmod +x gpm.py
-./gpm.py
-```
 ## Usage
-To run it, type:
+After installation 'GloriousProtonManager' will be added to your PATH (~/.local/bin/). To run it, type:
 ```bash
-./gpm.py
+GloriousProtonManager
 ```
 ## Features
 It is split into 3 columns: **Prerequisites & updates**, **Old versions** & **Removals**.
@@ -58,3 +43,5 @@ I decided to show only the last 15 versions, as older versions felt pointless. I
 Sees which versions are installed. Allows you to delete them once the version value is given as input. Works the same way as the other menu. Also shows a popup warning message if the field is left empty or an invalid value is given.
 ## Known bugs
 - Making the GUI look identical across platforms & distros is hard with PySimpleGUI. It will look fine on Fedora, but may look a bit off on distros like Ubuntu or OpenSUSE.
+- When closing the application the 'Exit' button has to be pressed twice.
+- In previous versions of GPM whenever any of the 'Install' buttons (Old or New versions) were pressed, the window would refresh before downloading to print an output message to screen, letting the user know that the installation was happening. After I moved all the PySimpleGUI code to the main function this became problematic. sg.window.refresh() is commented out until I find a solution.

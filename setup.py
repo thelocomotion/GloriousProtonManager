@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='GloriousProtonManager',
-    version='0.39',
+    version='0.70.3',
     python_requires='>=3.10',
     description='Manage Proton-GE from a simple UI',
     license='GNU General Public License v3 (GPLv3)',
@@ -19,12 +19,11 @@ setup(
         'requests'
     ],
     include_package_data=True,
-    # entry_points = {
-    #     'console_scripts': [
-    #         'gpm = gpm:main'
-    #     ]
-    # },
-    # scripts=['src/GloriousProtonManager/gpm.py'],
+    entry_points = {
+        'console_scripts': [
+            'GloriousProtonManager=GloriousProtonManager.__main__:main'
+        ]
+    },
     classifiers=[
         'Programming Language :: Python :: 3',
     ],
