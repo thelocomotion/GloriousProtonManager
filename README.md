@@ -1,5 +1,5 @@
 # Glorious Proton Manager
-A tool that allows Linux users to delete & install old & new [Proton-GE](https://github.com/GloriousEggroll/proton-ge-custom) versions as they come out. Making a GUI for it felt needed, as the number of Linux gamers is growing thanks to Valve, Wine & other open source projects.
+A tool that allows Linux users to delete & install old & new [Proton-GE](https://github.com/GloriousEggroll/proton-ge-custom) versions as they come out. Making a GUI for it felt needed; the number of Linux gamers is growing thanks to Valve, Wine & other open source projects.
 
 ![GPM screenshot](.github/images/gpm.png)
 ## Installation
@@ -31,7 +31,7 @@ It is split into 3 columns: **Prerequisites & updates**, **Old versions** & **Re
 ### Prerequisites
 Sees if the default directory **(~/.steam/root/compatibilitytools.d)** where Proton-GE versions should be installed exists. Creates it if it does not.
 ### Updates
-Sees if the latest Proton-GE version is installed on your system. Shows a message saying so if it is. Installs it if it does not.
+Sees if the latest Proton-GE version is installed on your system. Shows a message saying so if it is. Installs it if it is not.
 ### Old versions
 Split into 3 steps, which should be followed in order:
 1. List the versions.
