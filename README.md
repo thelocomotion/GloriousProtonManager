@@ -4,7 +4,7 @@ A tool that allows Linux users to delete & install old & new [Proton-GE](https:/
 ![GPM screenshot](.github/images/glorious.png)
 ## Installation
 ### Dependencies
-It needs python3-tkinter (Fedora)/python3-tk (Ubuntu & openSUSE Leap). To install it, run:
+The only dependency needed is **tkinter**. To install it, run:
 #### Fedora
 ```
 sudo dnf install python3-tkinter
@@ -17,12 +17,16 @@ sudo zypper in python3-tk
 ```
 sudo apt install python3-tk
 ```
-### Install using pip
+#### Arch/Manjaro
+```
+sudo pacman -S tk
+```
+### Install GPM with pip
 ```
 pip3 install GloriousProtonManager
 ```
 ## Usage
-After installation 'GloriousProtonManager' will be added to ~/.local/bin/. To run it, type:
+After installation **GloriousProtonManager** will be added to **~/.local/bin/**. To run it, type:
 ```bash
 ~/.local/bin/GloriousProtonManager
 ```
@@ -42,5 +46,5 @@ I decided to show only the last 15 versions, as older versions felt pointless. I
 ### Removals
 Sees which versions are installed. Allows you to delete them once the version value is given as input. Works the same way as the other menu. Also shows a popup warning message if the field is left empty or an invalid value is given.
 ## Known bugs
-- Making the GUI look identical across platforms & distros is hard with PySimpleGUI. It will look fine on Fedora, but may look a bit off on distros like Ubuntu or OpenSUSE.
-- When closing the application the 'Exit' button has to be pressed twice.
+- Making the GUI look identical across platforms & distros is hard with PySimpleGUI. It will look fine on Fedora and Manjaro, but may look a bit off on distros like Ubuntu or OpenSUSE.
+- When closing the application the **Exit** button has to be pressed twice.
