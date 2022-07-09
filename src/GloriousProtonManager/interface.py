@@ -29,6 +29,7 @@ def main():
 
     col4 =  [
                 [sg.Multiline(size=(115, 18),
+                    expand_x=True,
                     font='DejaVu 11',
                     text_color='#171a21',
                     background_color = BUTTON_COLOR,
@@ -43,7 +44,7 @@ def main():
 
     layout = [     
                 [sg.Frame('Prerequisites & updates', col1, size=(325, 190)), sg.Frame('Old versions', col2, size=(325, 190)), sg.Frame('Removals', col3, size=(325, 190))],
-                [sg.Column(col4)],
+                [sg.Column(col4, expand_x=True)],
                 [sg.Column(col5)],
             ]
 
