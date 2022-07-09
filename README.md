@@ -22,9 +22,9 @@ sudo apt install python3-tk
 pip3 install GloriousProtonManager
 ```
 ## Usage
-After installation 'GloriousProtonManager' will be added to your PATH (~/.local/bin/). To run it, type:
+After installation 'GloriousProtonManager' will be added to ~/.local/bin/. To run it, type:
 ```bash
-GloriousProtonManager
+~/.local/bin/GloriousProtonManager
 ```
 ## Features
 It is split into 3 columns: **Prerequisites & updates**, **Old versions** & **Removals**.
