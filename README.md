@@ -31,7 +31,7 @@ pip3 install GloriousProtonManager
 ~/.local/bin/GloriousProtonManager
 ```
 ## Features
-It is split into 4 columns: **Old versions**, **Prerequisites & updates** & **Removals**.
+It is split into 3 columns: **Old versions**, **Prerequisites & updates** & **Removals**.
 ### Old versions
 Split into 3 steps, which should be followed in order:
 1. List the versions.
