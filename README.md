@@ -31,20 +31,20 @@ pip3 install GloriousProtonManager
 ~/.local/bin/GloriousProtonManager
 ```
 ## Features
-It is split into 4 columns: **Old versions**, **Prerequisites**, **Removals** & **Updates**.
+It is split into 4 columns: **Old versions**, **Prerequisites & updates** & **Removals**.
 ### Old versions
 Split into 3 steps, which should be followed in order:
 1. List the versions.
 2. Pick one from the list by typing its version.
 3. Click on the Install button.
-### Prerequisites
-Sees if the default directory **(~/.steam/root/compatibilitytools.d)** where Proton-GE versions should be installed exists. Creates it if it does not.
-### Removals
-Sees which versions are installed. Allows you to delete them once the version value is given as input. Works the same way as the other menu. Also shows a popup warning message if the field is left empty or an invalid value is given.
-### Updates
-Sees if the latest Proton-GE version is installed on your system. Shows a message saying so if it is. Installs it if it is not.
+### Prerequisites & updates
+Prerequisites sees whether the default directory **(~/.steam/root/compatibilitytools.d)** where Proton-GE versions should be installed exists. Creates it if it does not.
+
+Updates sees whether the latest Proton-GE version is installed on your system. Shows a message saying so if it is. Installs it if it is not.
 
 I decided to show only the last 15 versions; older versions felt pointless. It will show a popup warning message if the field is left empty or an invalid value is given.
+### Removals
+Sees which versions are installed. Allows you to delete them once the version value is given as input. Works the same way as the other menu. Also shows a popup warning message if the field is left empty or an invalid value is given.
 ## Known bugs
 - Making the GUI look identical across platforms & distros is hard with PySimpleGUI. It will look fine on Fedora & Manjaro, but may look a bit off on distros like Ubuntu or openSUSE.
 - The **Exit** button has to be pressed twice when closing GPM.
