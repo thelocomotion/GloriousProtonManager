@@ -8,7 +8,7 @@ from .constants import DEFAULT_DIR, LAST_FIFTEEN, LATEST_VERSION_URL
 
 def see_directory_exists():
     '''
-    Check if GE-Proton default directory exists or not
+    Sees if Proton-GE default directory exists
 
     '''
     if exists(DEFAULT_DIR):
@@ -20,7 +20,7 @@ def see_directory_exists():
 
 def install_latest_update():
     '''
-    Install the latest version of GE-Proton that is available
+    Installs Proton-GE's latest available version
     
     '''
     response = get(LATEST_VERSION_URL, stream=True)
@@ -29,7 +29,7 @@ def install_latest_update():
 
 def last_fifteen_versions():
     '''
-    Print last 15 versions
+    Prints last 15 versions
     '''
     print("Versions available to install:\n")
     for release in LAST_FIFTEEN:
@@ -37,7 +37,7 @@ def last_fifteen_versions():
 
 def install_old_version():
     '''
-    Installs an old release of GE-Proton
+    Installs an old Proton-GE version
     '''
     old_version = "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton{0}/GE-Proton{0}.tar.gz".format(sg.values[0])
     response = get(old_version, stream=True)
@@ -46,7 +46,7 @@ def install_old_version():
 
 def list_installed_versions():
     '''
-    Check installed versions in default directory and sort them out in reverse
+    Sees installed versions in default directory & sorts them out in reverse
     '''
     print("These Proton-GE versions are currently installed on your system:\n")
     for version_found in sorted(listdir(DEFAULT_DIR), reverse=True):
@@ -54,7 +54,7 @@ def list_installed_versions():
 
 def delete_old_version():
     '''
-    Delete old version
+    Deletes old version
     '''
     ge_del_version = "GE-Proton{0}".format(sg.values[1])
     rmtree(DEFAULT_DIR + ge_del_version)
