@@ -3,7 +3,7 @@
 from os import listdir
 from os.path import exists
 import PySimpleGUI as sg
-from .api import (
+from .functions import (
     delete_old_version,
     install_release,
     last_fifteen_versions,
@@ -201,7 +201,7 @@ def main():
                     f"This Proton-GE version is already installed",
                     title="Glorious Proton Manager",
                 )
-            else:
+            elif install_old_input not in str(listdir(DEFAULT_DIR)) and (len(install_old_input) <= 5 ):
                 print(
                     f"Downloading and extracting Proton-GE{sg.values[0]}. It might take a while.\n"
                 )
@@ -209,6 +209,12 @@ def main():
                 install_release(old_version)
                 sg.popup(
                     f"Proton-GE{sg.values[0]} successfully installed",
+                    font=("DejaVu 9"),
+                    title="Glorious Proton Manager",
+                )
+            elif install_old_input not in str(listdir(DEFAULT_DIR)) and (len(install_old_input) > 5 ):
+                sg.popup(
+                    f"Invalid value. Only specify the version number e.g '7-20'",
                     font=("DejaVu 9"),
                     title="Glorious Proton Manager",
                 )
