@@ -45,7 +45,7 @@ def last_fifteen_versions() -> list:
 
 def list_installed_versions() -> list:
     """
-    Sees installed versions in default directory & sorts them out in reverse
+    Sees installed versions in default directory and sorts them in reverse
     """
     list_installed = []
     for version_found in sorted(listdir(DEFAULT_DIR), reverse=True):
