@@ -1,5 +1,5 @@
 # Glorious Proton Manager
-Manage Proton-GE simply.
+A simple (and glorious!) Proton-GE manager.
 
 Glorious Proton Manager allows Linux users to delete and install old and new [Proton-GE](https://github.com/GloriousEggroll/proton-ge-custom) versions as they come out. Making a GUI for it felt needed; the number of Linux gamers is growing thanks to Valve, Wine and other open source projects.
 
