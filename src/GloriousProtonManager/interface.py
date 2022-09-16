@@ -28,7 +28,7 @@ def main():
         ],
         [
             sg.Button(
-                "Update Proton-GE to latest version",
+                "Update Proton-GE to the latest version",
                 size=(47, 6),
                 font=("DejaVu 9"),
                 button_color=BUTTON_COLOR,
@@ -46,7 +46,7 @@ def main():
             )
         ],
         [
-            sg.Text("2. Pick one (e.g. 7-15):", font=("DejaVu 9")),
+            sg.Text("2. Pick one (e.g., 7-15):", font=("DejaVu 9")),
             sg.InputText(size=[20, 20], font=("DejaVu 12")),
         ],
         [
@@ -69,7 +69,7 @@ def main():
             )
         ],
         [
-            sg.Text("2. Pick one (e.g. 7-15):", font=("DejaVu 9")),
+            sg.Text("2. Pick one (e.g., 7-15):", font=("DejaVu 9")),
             sg.InputText(size=[20, 20], font=("DejaVu 12")),
         ],
         [
@@ -102,7 +102,7 @@ def main():
     layout = [
         [
             sg.Frame(
-                "Prerequisites & updates",
+                "Prerequisites and updates",
                 col1,
                 size=(325, 190),
                 expand_x=True,
@@ -129,7 +129,7 @@ def main():
         if event == "See if default Proton-GE directory exists":
             see_directory_exists()
 
-        if event == "Update Proton-GE to latest version":
+        if event == "Update Proton-GE to the latest version":
             if exists(DEFAULT_DIR):
                 installed = list_installed_versions()
                 if LATEST_VERSION_TAG not in installed:
@@ -164,11 +164,11 @@ def main():
                     title="Glorious Proton Manager",
                 )
             elif len(listdir(DEFAULT_DIR)) == 0:
-                print("No Proton-GE versions found on your system\n")
+                print("No Proton-GE versions found on the system\n")
             else:
                 version_found = list_installed_versions()
                 print(
-                    "These Proton-GE versions are currently installed on your system:\n"
+                    "These Proton-GE versions are currently installed on the system:\n"
                 )
                 for installed in version_found:
                     print(f"- {installed}")
@@ -214,7 +214,7 @@ def main():
                 )
             elif install_old_input not in str(listdir(DEFAULT_DIR)) and (len(install_old_input) > 5 ):
                 sg.popup(
-                    f"Invalid value. Only specify the version number e.g '7-20'",
+                    f"Invalid value. Only specify the version number, e.g., '7-20'",
                     font=("DejaVu 9"),
                     title="Glorious Proton Manager",
                 )
@@ -240,7 +240,7 @@ def main():
                     )
                 else:
                     sg.popup(
-                        "This version is not installed on your system",
+                        "This version is not installed on the system",
                         font=("DejaVu 9"),
                         title="Glorious Proton Manager",
                     )
