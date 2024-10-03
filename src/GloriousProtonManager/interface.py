@@ -123,7 +123,7 @@ def main():
     )
     while True:
         event, sg.values = window.read()
-        if event == "Exit" or event == sg.WIN_CLOSED:
+        if event in ("Exit", sg.WIN_CLOSED):
             break
 
         if event == "See if default Proton-GE directory exists":
@@ -252,3 +252,4 @@ def main():
                 )
 
     window.close()
+

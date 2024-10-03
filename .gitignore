@@ -4,3 +4,7 @@ eggs/
 .eggs/
 *.egg
 *.egg-info/
+venv/
+env/
+*/venv/
+*/env/
